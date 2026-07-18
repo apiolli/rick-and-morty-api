@@ -1,6 +1,6 @@
 export const SearchBar = () => {
   return (
-    <div className="flex flex-col items-center my-5 gap-6">
+    <div className="flex flex-col items-center my-8 gap-6">
       <h1 className="text-4xl font-semibold">Rick And Morty API</h1>
       <div className="flex gap-5 w-6/12 justify-center">
         <label className="input">
