@@ -6,9 +6,7 @@ Aplicación web para buscar y explorar personajes del universo de **Rick and Mor
 
 ## Demo
 
-![Vista previa de la app](./screenshot.png)
-
-*(agrega aquí una captura de pantalla real cuando la tengas)*
+<img width="1769" height="883" alt="image" src="https://github.com/user-attachments/assets/e68932e7-fd4a-45ce-8757-af179fe5d023" />
 
 ## Tecnologías utilizadas
 
