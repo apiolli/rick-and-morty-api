@@ -32,7 +32,7 @@ export const SearchBar = ({ getCharacter, placeHolder }: Props) => {
           <input
             type="search"
             className="grow"
-            placeholder={placeHolder}
+            placeholder={`Buscar por ${placeHolder}`}
             onChange={(e) => setFilter(e.target.value)}
             onKeyDown={handleKeyDown}
           />
