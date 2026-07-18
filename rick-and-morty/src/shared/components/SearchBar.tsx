@@ -1,6 +1,15 @@
-export const SearchBar = () => {
+import { useBar } from "../hooks/useBar";
+
+interface Props {
+  getCharacter: (status: string) => void;
+  placeHolder: string;
+}
+
+export const SearchBar = ({ getCharacter, placeHolder }: Props) => {
+  const { handleKeyDown, setFilter, filter } = useBar(getCharacter);
+
   return (
-    <div className="flex flex-col items-center my-8 gap-6">
+    <div className="flex flex-col items-center my-5 gap-6">
       <h1 className="text-4xl font-semibold">Rick And Morty API</h1>
       <div className="flex gap-5 w-6/12 justify-center">
         <label className="input">
@@ -10,9 +19,9 @@ export const SearchBar = () => {
             viewBox="0 0 24 24"
           >
             <g
-              stroke-linejoin="round"
-              stroke-linecap="round"
-              stroke-width="2.5"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2.5"
               fill="none"
               stroke="currentColor"
             >
@@ -23,10 +32,15 @@ export const SearchBar = () => {
           <input
             type="search"
             className="grow"
-            placeholder="Buscar por status"
+            placeholder={placeHolder}
+            onChange={(e) => setFilter(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </label>
-        <button className="bg-amber-50 text-black px-5 cursor-pointer rounded-md hover:bg-slate-200 transition-all font-semibold hover:scale-97">
+        <button
+          className="bg-amber-50 text-black px-5 cursor-pointer rounded-md hover:bg-slate-200 transition-all font-semibold hover:scale-97"
+          onClick={() => getCharacter(filter)}
+        >
           Buscar
         </button>
       </div>
