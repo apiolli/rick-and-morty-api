@@ -5,17 +5,17 @@ import { FiltersNav } from "./shared/components/FiltersNav";
 import { SearchBar } from "./shared/components/SearchBar";
 
 export const RickAndMortyApp = () => {
-  const { charactersByStatus, characters } = useCharacters();
+  const [filter, setfilter] = useState("status");
+  const { getCharacters, characters } = useCharacters(filter.toLowerCase());
 
-  const [filter, setfilter] = useState("Buscar por Status");
-
-  const handleFilter = (filter: string) => {
-    setfilter(`Buscar por ${filter}`);
+  const handleFilter = (filterBtn: string) => {
+    console.log(filter);
+    setfilter(`${filterBtn}`);
   };
 
   return (
     <>
-      <SearchBar getCharacter={charactersByStatus} placeHolder={filter} />
+      <SearchBar getCharacter={getCharacters} placeHolder={filter} />
       <FiltersNav handleFilter={handleFilter} />
       <CharactersList characters={characters} />
     </>

@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import type { Character } from "../types/characters.response";
-import { getCharactersByStatus } from "../actions/get-characters-by-status";
+import { getCharactersByParameters } from "../actions/get-characters-by-status";
 
-export const useCharacters = () => {
-  const [characters, setcharacters] = useState<Character[]>([]);
+export const useCharacters = (filter: string) => {
+  const [characters, setCharacters] = useState<Character[]>([]);
 
-  const charactersByStatus = async (status: string) => {
-    const response = await getCharactersByStatus(status);
-    setcharacters(response);
-  };
+  const getCharacters = useCallback(
+    async (query: string) => {
+      const response = await getCharactersByParameters(query, filter);
+      setCharacters(response);
+    },
+    [filter],
+  );
+
   return {
     characters,
-    charactersByStatus,
+    getCharacters,
   };
 };

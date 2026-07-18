@@ -4,13 +4,15 @@ import type {
   CharactersResponse,
 } from "../types/characters.response";
 
-export const getCharactersByStatus = async (
-  status: string,
+export const getCharactersByParameters = async (
+  query: string,
+  parameter: string,
 ): Promise<Character[]> => {
   const response = await api.get<CharactersResponse>(
-    `/character/?status=${status}`,
+    `/character/?${parameter}=${query}`,
   );
 
+  console.log(response);
   return response.data.results.map((character) => ({
     id: character.id,
     name: character.name,

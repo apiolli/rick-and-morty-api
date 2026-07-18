@@ -9,31 +9,31 @@ export const FiltersNav = ({ handleFilter }: Props) => {
       <ul className="flex gap-5">
         <li
           className="bg-amber-50 text-black px-5 py-1.5  cursor-pointer rounded-md hover:bg-transparent hover:text-white transition-all font-semibold hover:scale-97"
-          onClick={() => handleFilter("Nombre")}
+          onClick={() => handleFilter("name")}
         >
           Nombre
         </li>
         <li
           className="bg-amber-50 text-black px-5 py-1.5 cursor-pointer rounded-md hover:bg-transparent hover:text-white transition-all font-semibold hover:scale-97"
-          onClick={() => handleFilter("Status")}
+          onClick={() => handleFilter("status")}
         >
           Status
         </li>
         <li
           className="bg-amber-50 text-black px-5 py-1.5 cursor-pointer rounded-md  hover:bg-transparent hover:text-white transition-all font-semibold hover:scale-97"
-          onClick={() => handleFilter("Especie")}
+          onClick={() => handleFilter("species")}
         >
           Especie
         </li>
         <li
           className="bg-amber-50 text-black px-5 py-1.5 cursor-pointer rounded-md hover:bg-transparent hover:text-white transition-all font-semibold hover:scale-97"
-          onClick={() => handleFilter("Tipo")}
+          onClick={() => handleFilter("type")}
         >
           Tipo
         </li>
         <li
           className="bg-amber-50 text-black px-5 py-1.5 cursor-pointer rounded-md hover:bg-transparent hover:text-white transition-all font-semibold hover:scale-97"
-          onClick={() => handleFilter("Genero")}
+          onClick={() => handleFilter("gender")}
         >
           Genero
         </li>
