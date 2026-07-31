@@ -1,4 +1,4 @@
-import { useEffect, useState, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent } from "react";
 
 export const useBar = (getCharacter: (status: string) => void) => {
   const [filter, setFilter] = useState("");
@@ -13,16 +13,6 @@ export const useBar = (getCharacter: (status: string) => void) => {
       handleSearch();
     }
   };
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      getCharacter(filter);
-    }, 700);
-
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [filter, getCharacter]);
 
   return {
     filter,

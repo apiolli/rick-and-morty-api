@@ -1,15 +1,33 @@
+import { SyncLoader } from "react-spinners";
 import type { Character } from "../types/characters.response";
 
 interface Props {
   characters: Character[];
+  loading: boolean;
 }
 
-export const CharactersList = ({ characters }: Props) => {
+export const CharactersList = ({ characters, loading }: Props) => {
   const selectStatus = (status: string): string | undefined => {
     if (status === "Alive") return "success";
     if (status === "Dead") return "error";
     if (status === "unknown") return "neutral";
   };
+
+  if (characters.length === 0) {
+    return (
+      <div className="w-full flex flex-col items-center my-10">
+        <h1 className="text-3xl">Sin resultados</h1>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="w-full flex flex-col items-center my-10">
+        <SyncLoader color="#ffffff" size={20} />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col items-center my-10">
